@@ -2,8 +2,8 @@ train_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/polyp_dataset/TrainDataset/images
-      root_path_2: /home/koteswar/SAMWave/dataset/polyp_dataset/TrainDataset/masks
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: train
   wrapper:
@@ -11,29 +11,28 @@ train_dataset:
     args:
       inp_size: 1024
       augment: false
-  batch_size: 1
+  batch_size: 2
 
 val_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/polyp_dataset/TestDataset/Kvasir/images
-      root_path_2: /home/koteswar/SAMWave/dataset/polyp_dataset/TestDataset/Kvasir/masks
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: test
   wrapper:
     name: val
     args:
       inp_size: 1024
-  batch_size: 1
+  batch_size: 2
 
 test_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/polyp_dataset/TestDataset/clinic/images
-      root_path_2: /home/koteswar/SAMWave/dataset/polyp_dataset/TestDataset/clinic/masks
-      cache: none
+      root_path_1: 
+      root_path_2: 
       split_key: test
   wrapper:
     name: val
@@ -41,8 +40,8 @@ test_dataset:
       inp_size: 1024
   batch_size: 1
 
-eval_type: polyp
-sam_checkpoint: ./pretrained/sam_vit_h_4b8939.pth
+eval_type: cod
+sam_checkpoint: ./pretrained/sam_vit_b_01ec64.pth
 data_norm:
   inp:
     sub:
@@ -82,14 +81,14 @@ model:
       handcrafted_tune: true
       embedding_tune: true
       adaptor: adaptor
-      embed_dim: 1280
-      depth: 32
-      num_heads: 16
+      embed_dim: 768
+      depth: 12
+      num_heads: 12
       global_attn_indexes:
-      - 7
-      - 15
-      - 23
-      - 31
+      - 2
+      - 5
+      - 8
+      - 11
 optimizer:
   name: adamw
   args:

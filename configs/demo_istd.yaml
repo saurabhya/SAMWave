@@ -2,8 +2,8 @@ train_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/COD10K/Train/Images_orig
-      root_path_2: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/COD10K/Train/GT_orig
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: train
   wrapper:
@@ -17,8 +17,8 @@ val_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/CAMO/Images_orig
-      root_path_2: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/CAMO/GT_orig
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: test
   wrapper:
@@ -31,8 +31,8 @@ test_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/CAMO/Images_orig
-      root_path_2: /home/koteswar/SAMWave/dataset/CamouflagedObjectDetection/CAMO/GT_orig
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: test
   wrapper:
@@ -63,7 +63,7 @@ model:
   name: sam
   args:
     inp_size: 1024
-    loss: iou
+    loss: bbce
     encoder_mode:
       name: sam
       img_size: 1024
@@ -95,7 +95,7 @@ optimizer:
   args:
     lr: 0.0002
 lr_min: 1.0e-7
-epoch_max: 20
+epoch_max: 90
 
 multi_step_lr:
   milestones:

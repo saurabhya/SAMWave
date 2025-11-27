@@ -2,8 +2,8 @@ train_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/train/train_A
-      root_path_2: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/train/train_B
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: train
   wrapper:
@@ -11,28 +11,28 @@ train_dataset:
     args:
       inp_size: 1024
       augment: false
-  batch_size: 1
+  batch_size: 2
 
 val_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/test/test_A
-      root_path_2: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/test/test_B
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: test
   wrapper:
     name: val
     args:
       inp_size: 1024
-  batch_size: 1
+  batch_size: 2
 
 test_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/test/test_A
-      root_path_2: /home/koteswar/SAMWave/dataset/shadowobjectdetection/ISTD/test/test_B
+      root_path_1: 
+      root_path_2: 
       cache: none
       split_key: test
   wrapper:
@@ -63,7 +63,7 @@ model:
   name: sam
   args:
     inp_size: 1024
-    loss: bbce
+    loss: iou
     encoder_mode:
       name: sam
       img_size: 1024
@@ -95,7 +95,7 @@ optimizer:
   args:
     lr: 0.0002
 lr_min: 1.0e-7
-epoch_max: 90
+epoch_max: 20
 
 multi_step_lr:
   milestones:
